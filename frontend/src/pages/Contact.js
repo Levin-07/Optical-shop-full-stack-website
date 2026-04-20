@@ -16,15 +16,15 @@ function Contact() {
           <div className="contact-info">
             <div className="info-item">
               <h3>📧 Email</h3>
-              <p>info@opticalboutique.com</p>
+              <p>info@samopticals.com</p>
             </div>
             <div className="info-item">
               <h3>📞 Phone</h3>
-              <p>+91 1234567890</p>
+              <p>+91 9747505951</p>
             </div>
             <div className="info-item">
               <h3>📍 Location</h3>
-              <p>123 Fashion Street, Mumbai, India</p>
+              <p>Hill Highway, College Road, Anchal, Kerala 691306</p>
             </div>
           </div>
         </div>

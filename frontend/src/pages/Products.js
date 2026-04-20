@@ -9,16 +9,19 @@ function Products() {
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
 
-  // Load wishlist from localStorage
+  // Load wishlist and cart from localStorage
   useEffect(() => {
     const savedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
     setWishlist(savedWishlist);
+    
+    const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCart(savedCart);
   }, []);
 
   // Fetch products
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/products`)
       .then((res) => {
         setProducts(res.data);
       })
@@ -48,7 +51,9 @@ function Products() {
   const addToCart = (product) => {
     const exists = cart.find((item) => item._id === product._id);
     if (!exists) {
-      setCart([...cart, product]);
+      const updatedCart = [...cart, product];
+      setCart(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
       alert("Added to cart 🛒");
     } else {
       alert("Already in cart!");
@@ -69,27 +74,9 @@ function Products() {
     if (product.category === "frame" || product.category === "glass" || product.category === "glasses") {
       navigate("/prescription", { state: { product } });
     } else {
-      // For sunglasses, place order directly
-      placeOrder(product._id);
+      // For sunglasses, navigate to payment
+      navigate("/payment", { state: { products: [product._id], amount: product.price, isCart: false } });
     }
-  };
-
-  const placeOrder = (productId) => {
-    const token = localStorage.getItem("token");
-
-    axios
-      .post(
-        "http://localhost:5000/api/orders",
-        { productId },
-        { headers: { Authorization: token } }
-      )
-      .then(() => {
-        alert("Order placed successfully!");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Failed to place order");
-      });
   };
 
   return (

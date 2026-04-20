@@ -47,7 +47,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <h2>Optical Boutique</h2>
+          <h2>Sam Opticals</h2>
         </Link>
 
         <div className="navbar-links">

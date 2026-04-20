@@ -73,8 +73,8 @@ function Prescription() {
 
         // For now, just show success message
         // In a real app, this would proceed to checkout/payment
-        alert("Prescription saved! Proceeding to checkout...");
-        navigate("/products");
+        alert("Prescription saved! Proceeding to payment...");
+        navigate("/payment", { state: { products: [product._id], amount: product.price, isCart: false } });
     };
 
     return (

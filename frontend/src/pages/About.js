@@ -10,7 +10,7 @@ function About() {
         <div className="content-section">
           <h2>Our Story</h2>
           <p>
-            Welcome to Optical Boutique, your trusted destination for premium eyewear.
+            Welcome to Sam Opticals, your trusted destination for premium eyewear.
             We believe that glasses are more than just a vision correction tool—they're
             a statement of style, personality, and confidence.
           </p>

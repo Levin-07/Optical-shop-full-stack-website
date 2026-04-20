@@ -25,7 +25,7 @@ function Admin() {
     }
 
     axios
-      .get("http://localhost:5000/api/requests", {
+      .get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/requests`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +42,7 @@ function Admin() {
   const updateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/requests/${id}`,
+        `${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/requests/${id}`,
         { status },
         {
           headers: {

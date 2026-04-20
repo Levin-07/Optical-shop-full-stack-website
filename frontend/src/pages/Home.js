@@ -9,6 +9,7 @@ const featuredProducts = [
     title: "Classic Aviator",
     subtitle: "Timeless elegance meets modern design",
     category: "Sunglasses",
+    image: "/generated/classic.png",
     gradient: "linear-gradient(135deg, #D4735E 0%, #E89580 100%)"
   },
   {
@@ -16,6 +17,7 @@ const featuredProducts = [
     title: "Designer Frames",
     subtitle: "Handcrafted with precision and care",
     category: "Frames",
+    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&q=80&w=2070",
     gradient: "linear-gradient(135deg, #3E2723 0%, #6B6B6B 100%)"
   },
   {
@@ -23,6 +25,7 @@ const featuredProducts = [
     title: "Summer Collection",
     subtitle: "Bold styles for the season",
     category: "Sunglasses",
+    image: "/generated/summer.png",
     gradient: "linear-gradient(135deg, #FFD4C4 0%, #F5F1E8 100%)"
   },
   {
@@ -30,6 +33,7 @@ const featuredProducts = [
     title: "Premium Series",
     subtitle: "Luxury eyewear for discerning tastes",
     category: "Exclusive",
+    image: "https://images.unsplash.com/photo-1582142407894-ec85a1260a46?auto=format&fit=crop&q=80&w=2000",
     gradient: "linear-gradient(135deg, #E89580 0%, #D4735E 100%)"
   }
 ];
@@ -77,7 +81,11 @@ function Home() {
             <div
               key={product.id}
               className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-              style={{ background: product.gradient }}
+              style={{
+                backgroundImage: `url(${product.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
             >
               <div
                 className="carousel-content"
@@ -154,9 +162,7 @@ function Home() {
           </div>
         </div>
         <div className="hero-image">
-          <div className="hero-image-placeholder">
-            <span>Premium Eyewear</span>
-          </div>
+          <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=2000" alt="Premium Eyewear" className="hero-img-bg" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
         </div>
       </section>
 
@@ -171,9 +177,7 @@ function Home() {
           <div className="highlights-grid">
             <div className="highlight-card highlight-large">
               <div className="highlight-image">
-                <div className="placeholder-image" style={{ background: 'linear-gradient(135deg, #D4735E 0%, #E89580 100%)' }}>
-                  <span>Classic Frames</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&q=80&w=1000" alt="Classic Frames" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="highlight-content">
                 <h3>Timeless Classics</h3>
@@ -186,9 +190,7 @@ function Home() {
 
             <div className="highlight-card">
               <div className="highlight-image">
-                <div className="placeholder-image" style={{ background: 'linear-gradient(135deg, #FFD4C4 0%, #F5F1E8 100%)' }}>
-                  <span>Sunglasses</span>
-                </div>
+                <img src="/generated/summer.png" alt="Sunglasses" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="highlight-content">
                 <h3>Summer Collection</h3>
@@ -201,9 +203,7 @@ function Home() {
 
             <div className="highlight-card">
               <div className="highlight-image">
-                <div className="placeholder-image" style={{ background: 'linear-gradient(135deg, #3E2723 0%, #6B6B6B 100%)' }}>
-                  <span>Designer</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&q=80&w=1000" alt="Designer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="highlight-content">
                 <h3>Designer Series</h3>
@@ -216,9 +216,7 @@ function Home() {
 
             <div className="highlight-card highlight-wide">
               <div className="highlight-image">
-                <div className="placeholder-image" style={{ background: 'linear-gradient(135deg, #E89580 0%, #D4735E 100%)' }}>
-                  <span>New Arrivals</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&q=80&w=1500" alt="New Arrivals" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="highlight-content">
                 <h3>Latest Arrivals</h3>
@@ -253,10 +251,7 @@ function Home() {
               </Link>
             </div>
             <div className="cta-visual">
-              <div className="cta-image-placeholder">
-                <span>👁️</span>
-                <p>Professional Eye Care</p>
-              </div>
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000" alt="Professional Eye Care" className="cta-img-bg" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
             </div>
           </div>
         </div>
@@ -268,22 +263,18 @@ function Home() {
           <h2 className="text-center">Why Choose Us</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">👓</div>
               <h3>Premium Quality</h3>
               <p>Handcrafted frames made from the finest materials</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">✨</div>
               <h3>Expert Curation</h3>
               <p>Carefully selected designs for every style preference</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🎯</div>
               <h3>Perfect Fit</h3>
               <p>Personalized assistance to find your ideal eyewear</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🚚</div>
               <h3>Fast Delivery</h3>
               <p>Quick and secure shipping to your doorstep</p>
             </div>

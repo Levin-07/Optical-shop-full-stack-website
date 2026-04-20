@@ -137,8 +137,71 @@
     text-decoration: underline;
 }
 
+
+/* Social Login */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    margin: var(--spacing-lg) 0;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-separator span {
+    padding: 0 var(--spacing-md);
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: 12px;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.btn-google {
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+.btn-google:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.btn-apple {
+    background: #000000;
+    color: #ffffff;
+}
+
+.btn-apple:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+}
+
 /* Responsive */
 @media (max-width: 480px) {
+
     .auth-card {
         padding: var(--spacing-lg);
     }

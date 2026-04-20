@@ -15,10 +15,12 @@ app.use(express.json());
 connectDB();
 
 const authRoutes = require("./routes/auth.routes");
+const orderRoutes = require("./routes/order.routes");
 //console.log("Auth routes loaded:", authRoutes);          //for testing
 app.use("/api/products", productRoutes);
 app.use("/api/requests", requestRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend running 🚀");
