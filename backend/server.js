@@ -22,8 +22,13 @@ app.use("/api/requests", requestRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
 
-app.get("/", (req, res) => {
-  res.send("Backend running 🚀");
+const path = require("path");
+
+// Serve Frontend in Production
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
