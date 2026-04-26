@@ -9,6 +9,7 @@ function Navbar() {
   const [wishlistCount, setWishlistCount] = useState(0);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   let role = null;
 
@@ -46,29 +47,53 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo" onClick={() => setIsMenuOpen(false)}>
           <h2>Sam Opticals</h2>
         </Link>
 
-        <div className="navbar-links">
-          <Link to="/" className="nav-link">
+        {/* Mobile Menu Toggle */}
+        <button 
+          className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
+          <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
-          <Link to="/products" className="nav-link">
+          <Link to="/products" className="nav-link" onClick={() => setIsMenuOpen(false)}>
             Products
           </Link>
-          <Link to="/about" className="nav-link">
+          <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>
             About
           </Link>
-          <Link to="/contact" className="nav-link">
+          <Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>
             Contact
           </Link>
 
           {role === "admin" && (
-            <Link to="/admin" className="nav-link">
+            <Link to="/admin" className="nav-link" onClick={() => setIsMenuOpen(false)}>
               Admin
             </Link>
           )}
+
+          {/* Mobile Login/Logout inside the menu */}
+          <div className="mobile-auth">
+            {!token ? (
+              <Link to="/auth" className="btn btn-nav" onClick={() => setIsMenuOpen(false)}>
+                Login
+              </Link>
+            ) : (
+              <button onClick={() => { logout(); setIsMenuOpen(false); }} className="btn btn-nav">
+                Logout
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Right Side Icons */}

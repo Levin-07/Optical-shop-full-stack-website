@@ -340,16 +340,27 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .progress-steps {
-        overflow-x: auto;
-        justify-content: flex-start;
+        padding: 0 var(--spacing-sm);
+        gap: 0;
+        justify-content: center;
+    }
+
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 
     .progress-line {
-        width: 40px;
+        width: 25px;
+        margin: 0 5px;
+        transform: translateY(-12px);
     }
 
     .step-label {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+        white-space: nowrap;
+        text-align: center;
     }
 
     .info-cards {
@@ -361,7 +372,7 @@
     }
 
     .time-slots {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .button-group {

@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./EyeTest.css";
 
 function EyeTest() {
     const navigate = useNavigate();
     const [step, setStep] = useState(1); // 1: Intro, 2: Location, 3: DateTime, 4: Details
+
+    // Scroll to top whenever step changes
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [step]);
     const [formData, setFormData] = useState({
         location: "",
         date: "",

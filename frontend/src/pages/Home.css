@@ -381,4 +381,39 @@
     .hero-image-placeholder span {
         font-size: 1.75rem;
     }
+
+    .cta-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        text-align: center;
+    }
+
+    .cta-text h2 {
+        font-size: 2.25rem;
+    }
+
+    .cta-text p {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .cta-benefits {
+        display: inline-block;
+        text-align: left;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .btn-large-cta {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .cta-visual {
+        order: -1; /* Move image above text on mobile */
+    }
+
+    .cta-image-placeholder {
+        height: 300px;
+    }
 }
